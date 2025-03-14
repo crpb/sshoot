@@ -128,8 +128,14 @@ class TestProfileListing:
         output = ProfileListing(profile_manager).get_output("json")
         data = json.loads(output)
         assert data == {
-            "profile1": {"subnets": ["10.0.0.0/24"]},
-            "profile2": {"subnets": ["192.168.0.0/16"], "auto-hosts": True},
+            # "profile1": {"subnets": ["10.0.0.0/24"]},
+            # "profile2": {"subnets": ["192.168.0.0/16"], "auto-hosts": True},
+            "profile1": {"active": False, "subnets": ["10.0.0.0/24"]},
+            "profile2": {
+                "active": True,
+                "subnets": ["192.168.0.0/16"],
+                "auto-hosts": True,
+            },
         }
 
     def test_get_output_yaml(self, profile_manager, active_profiles):

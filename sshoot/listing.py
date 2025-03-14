@@ -52,8 +52,7 @@ ProfileIterator = Iterable[Tuple[str, Profile]]
 class Formatter(Protocol):
     def __call__(
         self, profile_iter: ProfileIterator, verbose: bool = False
-    ) -> str:
-        pass  # pragma: nocoverage
+    ) -> str: ...  # pragma: nocoverage
 
 
 class ProfileListing:
@@ -139,7 +138,8 @@ class ProfileListing:
         data = {}
         for name, profile in profiles_iter:
             config = profile.config()
-            # config['active'] = manager.is_running(name)
+            # row = ["*" if self.manager.is_running(name) else "", name]
+            config["active"] = self.manager.is_running(name)
             data[name] = config
 
         return json.dumps(data)
