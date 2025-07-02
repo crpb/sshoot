@@ -53,7 +53,7 @@ class Manager:
 
     def load_config(self):
         """Load configuration from file."""
-        self.config_path.mkdir(parents=True, exist_ok=True)
+        self.config_path.mkdir(parents=True, mode=0o077, exist_ok=True)
         self.sessions_path.mkdir(parents=True, exist_ok=True)
         self._config.load()
 
