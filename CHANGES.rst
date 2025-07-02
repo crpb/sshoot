@@ -1,3 +1,7 @@
+v1.6.1 - 2025-07-02
+
+- protect temporary folder /tmp/sshoot-*
+
 v1.6.0 - 2022-07-21
 ===================
 

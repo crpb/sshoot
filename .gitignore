@@ -10,3 +10,6 @@
 .pybuild
 .cache
 /snap/.snapcraft
+.venv
+.envrc
+/dist
