@@ -14,7 +14,6 @@ from typing import (
 )
 
 from prettytable import (
-    HEADER,
     PrettyTable,
 )
 
@@ -96,7 +95,7 @@ class ProfileListing:
         table.padding_width = 0
         table.left_padding_width = 0
         table.right_padding_width = 1
-        table.hrules = HEADER
+        table.hrules = True
 
         for name, profile in profiles_iter:
             row = ["*" if self.manager.is_running(name) else "", name]

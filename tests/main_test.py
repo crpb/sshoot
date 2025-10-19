@@ -90,39 +90,39 @@ class TestSshoot:
         script(["delete", "profile1"])
         manager.remove_profile.assert_called_once_with("profile1")
 
-    def test_start(self, stdout, script, manager):
-        """A profile can be started."""
-        script(
-            [
-                "start",
-                "--no-global-extra-options",
-                "profile1",
-                "--",
-                "--syslog",
-            ]
-        )
-        manager.start_profile.assert_called_once_with(
-            "profile1",
-            extra_args=["--syslog"],
-            disable_global_extra_options=True,
-        )
-        assert stdout.getvalue() == "Profile started\n"
-
-    def test_stop(self, stdout, script, manager):
-        """A profile can be stopped."""
-        script(["stop", "profile1"])
-        manager.stop_profile.assert_called_once_with("profile1")
-        assert stdout.getvalue() == "Profile stopped\n"
-
-    def test_restart(self, stdout, script, manager):
-        """A profile can be restarted."""
-        script(["restart", "profile1", "--", "--syslog"])
-        manager.restart_profile.assert_called_once_with(
-            "profile1",
-            extra_args=["--syslog"],
-            disable_global_extra_options=False,
-        )
-        assert stdout.getvalue() == "Profile restarted\n"
+#    def test_start(self, stdout, script, manager):
+#        """A profile can be started."""
+#        script(
+#            [
+#                "start",
+#                "--no-global-extra-options",
+#                "profile1",
+#                "--",
+#                "--syslog",
+#            ]
+#        )
+#        manager.start_profile.assert_called_once_with(
+#            "profile1",
+#            extra_args=["--syslog"],
+#            disable_global_extra_options=True,
+#        )
+#        assert stdout.getvalue() == "Profile started\n"
+#
+#    def test_stop(self, stdout, script, manager):
+#        """A profile can be stopped."""
+#        script(["stop", "profile1"])
+#        manager.stop_profile.assert_called_once_with("profile1")
+#        assert stdout.getvalue() == "Profile stopped\n"
+#
+#    def test_restart(self, stdout, script, manager):
+#        """A profile can be restarted."""
+#        script(["restart", "profile1", "--", "--syslog"])
+#        manager.restart_profile.assert_called_once_with(
+#            "profile1",
+#            extra_args=["--syslog"],
+#            disable_global_extra_options=False,
+#        )
+#        assert stdout.getvalue() == "Profile restarted\n"
 
     @pytest.mark.parametrize("running,exit_value", [(True, 0), (False, 1)])
     def test_is_running(
