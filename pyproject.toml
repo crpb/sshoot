@@ -13,7 +13,8 @@ keywords = [
   "sshuttle",
   "vpn",
 ]
-license = { file = "LICENSE.txt" }
+license = "GPL-3.0-or-later"
+license-files = [ "LICENSE.txt" ] 
 maintainers = [
   { name = "Alberto Donato", email = "alberto.donato@gmail.com" },
 ]
@@ -26,7 +27,6 @@ classifiers = [
   "Environment :: Console",
   "Intended Audience :: Developers",
   "Intended Audience :: System Administrators",
-  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
   "Operating System :: OS Independent",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3 :: Only",

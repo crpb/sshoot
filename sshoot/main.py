@@ -1,5 +1,6 @@
 """Command-line interface to handle sshuttle VPN sessions."""
 
+import shlex
 from argparse import (
     ArgumentParser,
     Namespace,
@@ -28,7 +29,6 @@ from .manager import (
     Manager,
     ManagerProfileError,
 )
-
 
 class Sshoot(Script):
     """Manage multiple sshuttle VPN sessions."""
